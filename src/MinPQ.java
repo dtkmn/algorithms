@@ -7,6 +7,7 @@ import java.util.NoSuchElementException;
  */
 public class MinPQ<Key> implements Iterable<Key> {
 
+    // Use array to store those data to simulate tree nodes
     private Key[] pq;
     private int N;
     private Comparator<Key> comparator;
@@ -146,7 +147,7 @@ public class MinPQ<Key> implements Iterable<Key> {
         private MinPQ<Key> copy;
 
         public HeapIterator() {
-            if(comparator == null)  copy = new MinPQ<Key>(size());
+            if(comparator == null)  copy = new MinPQ<>(size());
             else                    copy = new MinPQ<>(size(), comparator);
             for(int i = 1; i<= N; i++) {
                 copy.insert(pq[i]);

@@ -29,14 +29,14 @@ public class Bag<Item> implements Iterable<Item>{
 
     public void add(Item item) {
         Node<Item> oldFirst = first;
-        first = new Node<Item>();
+        first = new Node<>();
         first.item = item;
         first.next = oldFirst;
         N++;
     }
 
     public Iterator<Item> iterator() {
-        return new ListIterator<Item>(first);
+        return new ListIterator<>(first);
     }
 
     private class ListIterator<Item> implements Iterator<Item> {
