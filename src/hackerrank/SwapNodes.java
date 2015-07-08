@@ -52,9 +52,6 @@ public class SwapNodes {
         Queue<Node> queue = new LinkedList<>();
         queue.add(root);
 
-        Node[] arrayNodes = new Node[N];
-        arrayNodes[0] = root;
-
         for(int i = 0; i<N; i++) {
             // Read a and b value in same row
             int left = in.nextInt();
