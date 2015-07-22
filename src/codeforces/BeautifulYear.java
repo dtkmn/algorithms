@@ -1,7 +1,5 @@
 package codeforces;
 
-import sun.tools.java.ScannerInputReader;
-
 import java.util.Scanner;
 
 /**
