@@ -12,18 +12,14 @@ public class CaseOfTheZerosAndOnes {
         int length = in.nextInt();
         String input = in.next();
 
-        boolean changes = true;
-        while(changes) {
-            changes = false;
-            if(input.indexOf("10") >= 0) {
-                input = input.replaceFirst("10", "");
-                changes = true;
-            } else if(input.indexOf("01") >= 0) {
-                input = input.replaceFirst("01", "");
-                changes = true;
-            }
+        int numOne = 0, numZero = 0;
+        for(int i=0; i<input.length(); i++) {
+            if(input.charAt(i) == '1') numOne++;
+            else if(input.charAt(i) == '0') numZero++;
         }
-        System.out.println(input.length());
+
+        System.out.println(Math.abs(numOne-numZero));
+
     }
 
 }
