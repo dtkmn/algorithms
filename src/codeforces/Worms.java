@@ -1,6 +1,5 @@
 package codeforces;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -17,32 +16,26 @@ public class Worms {
             sum += in.nextInt();
             piles[i] = sum;
         }
-        System.out.println(Arrays.toString(piles));
 
         int worms = in.nextInt();
         for(int i=1; i<=worms; i++) {
             int label = in.nextInt();
-
             System.out.println(binarySearch(piles, label));
-//            for(int j=1; j<=numPiles; j++) {
-//                if(label <= piles[j]) {
-//                    System.out.println(j);
-//                    break;
-//                }
-//            }
-
         }
     }
 
-    static int binarySearch(int[] piles, int value) {
+    public static int binarySearch(int[] piles, int value) {
         int low = 1, high = piles.length-1;
-        while(low != high) {
-            int middle = (low + high)/2;
-            if (value > piles[middle]) low = middle;
-            else if (value < piles[middle]) high = middle;
+        // { 1, 5, 13, 24, 35 }
+        int middle = low;
+        while(Math.abs(high-low) > 1) {
+            middle = (low+high)%2==0 ? (low+high)/2 : 1+(low+high)/2;
+            if (value > piles[middle]) low = middle + 1;
+            else if (value <= piles[middle]) high = middle;
             else return middle;
         }
-        return low;
+        if(piles[low] >= value) return low;
+        else return high;
     }
 
 }
