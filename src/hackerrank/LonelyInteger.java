@@ -18,8 +18,6 @@ public class LonelyInteger {
             System.out.println("a: " + a);
         }
         System.out.println(a);
-
-
     }
 
 

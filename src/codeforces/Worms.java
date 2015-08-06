@@ -16,7 +16,6 @@ public class Worms {
             sum += in.nextInt();
             piles[i] = sum;
         }
-
         int worms = in.nextInt();
         for(int i=1; i<=worms; i++) {
             int label = in.nextInt();
