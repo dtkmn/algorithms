@@ -6,7 +6,8 @@ package topcoder;
 public class TheBeauty {
 
     public static void main(String[] args) {
-        int n = 123456789;
+//        int n = 123456789;
+        int n = 100;
         System.out.println(new TheBeauty().find(n));
     }
 
@@ -18,7 +19,7 @@ public class TheBeauty {
             pos[Character.getNumericValue(input.charAt(i))]++;
         }
         for(int i=0; i<pos.length; i++) {
-            if(pos[i] == 1) unique++;
+            if(pos[i] > 0) unique++;
         }
         return unique;
     }
