@@ -7,21 +7,27 @@ import java.util.Scanner;
  */
 public class LuckyDivision {
 
+    static boolean isLucky(int number) {
+        while(number != 0) {
+            if(number%10 == 4 || number%10 == 7) {
+                number /= 10;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int num = in.nextInt();
-        if(num % 4 == 0 || num % 7 == 0) {
-            System.out.println("YES");
-        } else {
-            char[] charArray = String.valueOf(num).toCharArray();
-            for(int i=0; i<charArray.length; i++) {
-                if(!(charArray[i] == 52 || charArray[i] == 55)) {
-                    System.out.println("NO");
-                    return;
-                }
+        for(int i=1; i<=num; i++) {
+            if(isLucky(i) && (num%i==0 || num%i==0)) {
+                System.out.println("YES");
+                return;
             }
-            System.out.println("YES");
         }
+        System.out.println("NO");
     }
 
 }
