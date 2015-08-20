@@ -1,8 +1,6 @@
 package hackerrank;
 
 import java.util.Scanner;
-import java.io.*;
-import java.util.*;
 
 class point
 {
@@ -11,7 +9,7 @@ class point
     point(long _x,long _y){x=_x;y=_y;}
 };
 
-public class Magic5 {
+public class PointOfMeeting {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
