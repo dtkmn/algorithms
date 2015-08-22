@@ -13,13 +13,12 @@ public class CurrencySystemInGeraldion {
         int[] notes = new int[n];
         for(int i=0; i<n; i++) {
             notes[i] = in.nextInt();
+            if (notes[i] == 1) {
+                System.out.println(-1);
+                return;
+            }
         }
-        int a = 0;
-        while(a > 0) {
-
-        }
-
-        System.out.println(-1);
+        System.out.println(1);
     }
 
 }
