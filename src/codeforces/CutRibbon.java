@@ -14,19 +14,22 @@ public class CutRibbon {
         abc[0] = in.nextInt();
         abc[1] = in.nextInt();
         abc[2] = in.nextInt();
+
         int[] max = new int[total+1];
+        for(int i=0; i<max.length; i++) {
+            max[i] = -1;
+        }
+
         max[0] = 0;
 
         for(int i=1; i<=total; i++) {
             for(int j=0; j<abc.length; j++) {
-
-                if(abc[j]<=i && max[i-abc[j]]+1 > max[i]) {
+                if(abc[j]<=i && max[i-abc[j]] != -1 && max[i-abc[j]]+1 > max[i]) {
                     max[i] = max[i-abc[j]] + 1;
                 }
-
             }
         }
-
+//        System.out.println(Arrays.toString(max));
         System.out.println(max[total]);
 
     }
