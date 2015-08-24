@@ -2,14 +2,16 @@ package hackerrank;
 
 import java.util.Scanner;
 
-class point
-{
-    long x,y;
-    point(){x=0;y=0;}
-    point(long _x,long _y){x=_x;y=_y;}
-};
+
 
 public class PointOfMeeting {
+
+    static class point
+    {
+        long x,y;
+        point(){x=0;y=0;}
+        point(long _x,long _y){x=_x;y=_y;}
+    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
