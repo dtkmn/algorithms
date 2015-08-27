@@ -1,6 +1,5 @@
 package codeforces;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -18,15 +17,43 @@ public class SortTheArray {
 
         int pre = original[0];
         int prePos = 0;
-        int startDesPos = -1;
-        int startIncPos = -1;
+        int startDesPos = -1, startIncPos = -1;
+        int incCount = 0, desCount = 0;
+        // for increasing only
+        int min = pre, max = pre;
         int count = 0;
         int resetCount = 0;
+        int minmaxpoint = 0;
         String output = "";
         for(int i=1; i<size; i++) {
             if(original[i] < pre && startDesPos == -1) {
+                // Set started decreasing position
                 startDesPos = prePos;
-            } else if(startDesPos != -1 && original[i] > pre){
+                if(desCount == 0) desCount++;
+                else {
+                    System.out.println("no");
+                    return;
+                }
+            } else if(original[i] > pre && startIncPos == -1) {
+                // Set started increasing position
+                startIncPos = prePos;
+                incCount++;
+            }
+
+            if(original[i] > pre) {
+                // when it is increasing, track min/max values
+                min = Math.min(min, original[i]);
+                max = Math.max(max, original[i]);
+            }
+
+            if(original[i] < pre) {
+                if(minmaxpoint != 0 && original[i] < min) {
+                    System.out.println("no");
+                    return;
+                }
+            }
+
+            if(startDesPos != -1 && original[i] > pre){
                 // one of the minimum point here
                 if(original[startDesPos] < original[i]) {
                     if(++count > 1) {
@@ -41,11 +68,12 @@ public class SortTheArray {
                     System.out.println("no");
                     return;
                 }
+                minmaxpoint++;
+            } else if(startIncPos != -1 && original[i] < pre) {
+                // one of the maximum point here
+                minmaxpoint++;
             }
-//            else if(i == size-1 && startDesPos != -1) {
-//                // decreasing till the end
-//                output = (startDesPos+1) + " " + (i+1);
-//            }
+
             pre = original[i];
             prePos = i;
         }
