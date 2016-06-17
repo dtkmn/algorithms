@@ -36,9 +36,6 @@ public class GivenLengthAndSumOfDigits {
         if(m != 1) {
             int numberOfNine = s/9;
             int remainSum = s%9;
-//            if(numberOfNine + (remainSum==0?0:1) > m) {
-//                System.out.println(-1 + " " + -1);
-//            }
             if(remainSum != 0) {
                 if(numberOfNine+1 == m) {
                     minResult += remainSum;
