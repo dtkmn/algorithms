@@ -7,7 +7,11 @@ import java.util.Scanner;
 public class PointsAndSegments {
 
   private static int[] fastCountSegments(int[] starts, int[] ends, int[] points) {
+
+    // Create segments array to save all start and end point within each segments, also points too
     Segment[] segments = new Segment[starts.length * 2 + points.length];
+
+    // Loop through each start/end point pair on segments
     for (int m = 0, n = 0; m < starts.length; m++) {
       Segment start = new Segment();
       start.value = starts[m];
@@ -18,6 +22,8 @@ public class PointsAndSegments {
       end.type = 'e';
       segments[n++] = end;
     }
+
+    // Loop through each point and put it in segment array
     for (int p = 0, q = starts.length*2; p < points.length; p++) {
       Segment point = new Segment();
       point.value = points[p];
@@ -26,14 +32,21 @@ public class PointsAndSegments {
       segments[q++] = point;
     }
 
+    System.out.println(Arrays.toString(segments));
 
     int[] cnt = new int[points.length];
     Arrays.sort(segments, new Comparator<Segment>() {
       @Override
       public int compare(Segment s1, Segment s2) {
-        return s1.value - s2.value;
+        if (s1.value != s2.value) return s1.value - s2.value;
+        else {
+          // when type order should be 's', 'p', 'e'
+          return s2.type - s1.type;
+        }
       }
     });
+
+    System.out.println(Arrays.toString(segments));
 
     int count = 0;
     for (Segment s: segments) {
@@ -45,9 +58,11 @@ public class PointsAndSegments {
     Arrays.sort(segments, new Comparator<Segment>() {
       @Override
       public int compare(Segment s1, Segment s2) {
-        return s1.index - s2.index;
+        return s2.index - s1.index;
       }
     });
+
+    System.out.println(Arrays.toString(segments));
 
     int index = 0;
     for (int s=0; s<segments.length; s++) {
@@ -64,6 +79,17 @@ public class PointsAndSegments {
     char type;
     int count;
     int index = -1;
+
+    @Override
+    public String toString() {
+      return "Segment{" +
+              "value=" + value +
+              ", type=" + type +
+              ", count=" + count +
+              ", index=" + index +
+              '}';
+    }
+
   }
 
   private static int[] naiveCountSegments(int[] starts, int[] ends, int[] points) {
