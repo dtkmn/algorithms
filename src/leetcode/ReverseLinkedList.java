@@ -29,21 +29,36 @@ public class ReverseLinkedList {
         return currentHead;
     }
 
-    public static void test() {
-        ListNode n1 = new ListNode(1);
-//        ListNode n2 = new ListNode(2);
-//        ListNode n3 = new ListNode(3);
-//        n1.next = n2;
-//        n2.next = n3;
-        ListNode reverseList = reverseList(n1);
+    // I think this is more concise version
+    public static ListNode reverseList2(ListNode head) {
+        if (head == null) return null;
 
-        System.out.println(reverseList);
+        ListNode current = head, pre = null, next;
+        while (current != null) {
+            // store next pointer
+            next = current.next;
+            // point current.next to previous node
+            current.next = pre;
+            // keep looping through current node list
+            pre = current;
+            current = next;
+        }
+        return pre;
+    }
 
+    public static void print(ListNode node) {
+        while (node != null) {
+            System.out.print(node.val + " ");
+            node = node.next;
+        }
     }
 
     public static void main(String[] args) {
 
-        test();
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        print(reverseList2(head));
 
     }
 
