@@ -11,23 +11,12 @@ import java.util.Set;
 public class HappyNumber {
 
     public static boolean isHappy(int n) {
-        Set<Integer> set = new HashSet<>();
-        n = sum(n);
-        while (n != 1) {
-            n = sum(n);
-            if (set.contains(n)) return false;
-            set.add(n);
-        }
-        return true;
-    }
-
-    public static boolean isHappy_withFloydCycleFindingAlgo(int n) {
         // slow process only progress one
         int slow = sum(n);
         // fast process will do twice each step
         int fast = sum(sum(n));
 
-        while (fast != 1 && slow != fast) {
+        while (slow != fast) {
             fast = sum(sum(fast));
             slow = sum(slow);
         }
