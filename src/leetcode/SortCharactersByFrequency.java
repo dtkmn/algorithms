@@ -31,9 +31,57 @@ public class SortCharactersByFrequency {
         return output.toString();
     }
 
+    // Time Complexity: O(NlogN) i.e N is length of s
+    // Space Complexity: O(N)
+    public static String frequencySort2(String s) {
+
+        // Make it as char array and sort it
+
+        char[] charArray = s.toCharArray();
+        Arrays.sort(charArray);
+
+        System.out.println(Arrays.toString(charArray));
+
+        // Group the same character as same string
+        char prev = '0';
+        StringBuilder sb = new StringBuilder();
+        List<String> dup = new ArrayList<>();
+        for (char c: charArray) {
+            if (prev == c) {
+                sb.append(c);
+            } else {
+                if (sb.length() > 0) dup.add(sb.toString());
+                sb = new StringBuilder();
+                sb.append(c);
+            }
+            prev = c;
+        }
+        if (sb.length() > 0) dup.add(sb.toString());
+
+        System.out.println(dup);
+
+        Collections.sort(dup, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                if (o1.length() == o2.length()) return 0;
+                else return o2.length() > o1.length() ? 1: -1;
+            }
+        });
+
+        System.out.println(dup);
+
+        StringBuilder res = new StringBuilder();
+        for (String item: dup) {
+            res.append(item);
+        }
+
+        return res.toString();
+
+    }
+
     public static void main(String[] args) {
-        System.out.println(frequencySort("tree"));
-        System.out.println(frequencySort("cccaaa"));
+        System.out.println(frequencySort2("atree"));
+        System.out.println(frequencySort2("cccaaa"));
     }
 
 }
