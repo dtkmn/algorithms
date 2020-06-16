@@ -28,14 +28,11 @@ public class BinaryTreePreorderTraversal {
         Stack<TreeNode> stack = new Stack<>();
         stack.add(root);
         while (!stack.isEmpty()) {
-            int size = stack.size();
-            for (int i = 0; i < size; i++) {
-                TreeNode n = stack.pop();
-                res.add(n.val);
-                // Adding right node first since it is inside stack
-                if (n.right != null) stack.add(n.right);
-                if (n.left != null) stack.add(n.left);
-            }
+            TreeNode n = stack.pop();
+            res.add(n.val);
+            // Adding right node first since it is inside stack
+            if (n.right != null) stack.add(n.right);
+            if (n.left != null) stack.add(n.left);
         }
         return res;
     }
