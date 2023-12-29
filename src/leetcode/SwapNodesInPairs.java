@@ -2,7 +2,7 @@ package leetcode;
 
 
 /**
- * https://leetcode.com/problems/swap-nodes-in-pairs/
+ * <a href="https://leetcode.com/problems/swap-nodes-in-pairs/">...</a>
  *
  */
 public class SwapNodesInPairs {
@@ -10,43 +10,56 @@ public class SwapNodesInPairs {
     public static class ListNode {
         int val;
         ListNode next;
+        ListNode() {}
         ListNode(int x) { val = x; }
     }
 
-    public static ListNode swapPairs(ListNode head) {
-        ListNode current = head, tail = null;
-        ListNode newHead = null;
+    /**
+     * Time Complexity O(N), N is the size of LinkedList
+     * Space Complexity O(N) stack space utilized for recursion
+     * @param head
+     * @return
+     */
+    public ListNode swapPairs_recur(ListNode head) {
+        if (head == null || head.next == null) return head;
 
-        while (current != null) {
-            ListNode[] nodes = reverseListInNumber(current, 2);
-            // Store head for 'first loop'
-            if (newHead == null) newHead = nodes[0];
-            // only for tail after first loop
-            if (tail != null) tail.next = nodes[0];
-            tail = nodes[1];
+        ListNode firstNode = head;
+        ListNode secondNode = head.next;
 
-            current = nodes[1].next;
-        }
+        firstNode.next = swapPairs_recur(secondNode.next);
+        secondNode.next = firstNode;
 
-        return newHead;
+        return secondNode;
     }
 
-    public static ListNode[] reverseListInNumber(ListNode head, int k) {
-        if (head == null) return null;
-        int count = 0;
-        ListNode current = head, pre = null, next = null;
-        while (current != null && ++count <= k) {
-            // store next pointer
-            next = current.next;
-            // point current.next to previous node
-            current.next = pre;
-            // keep looping through current node list
-            pre = current;
-            current = next;
+    /**
+     * Time Complexity O(N), N is the size of LinkedList
+     * Space Complexity O(1)
+     * @param head
+     * @return
+     */
+    public ListNode swapPairs_it(ListNode head) {
+        if (head == null || head.next == null) return head;
+
+        ListNode newHead = new ListNode();
+        newHead.next = head;
+        ListNode firstNode = head;
+        ListNode prev = newHead;
+        ListNode secondNode = head.next;
+        // #1: prev -> firstNode -> secondNode
+        // #2: firstNode -> firstNode.next -> firstNode.next.next
+        while (firstNode != null && secondNode != null) {
+
+            firstNode.next = secondNode.next;
+
+            prev.next = secondNode;
+            secondNode.next = firstNode;
+
+            prev = firstNode;
+            firstNode = firstNode.next;
+            secondNode = firstNode != null? firstNode.next: null;
         }
-        // head become last node and should point to proper next node
-        head.next = current;
-        return new ListNode[] {pre, head};
+        return newHead.next;
     }
 
     public static void print(ListNode node) {
@@ -58,14 +71,11 @@ public class SwapNodesInPairs {
     }
 
     public static void main(String[] args) {
-
         ListNode head = new ListNode(3);
         head.next = new ListNode(5);
         head.next.next = new ListNode(6);
         head.next.next.next = new ListNode(8);
-
-        print(swapPairs(head));
-
+        print(new SwapNodesInPairs().swapPairs_recur(head));
     }
 
 }
