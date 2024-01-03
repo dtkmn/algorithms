@@ -57,7 +57,8 @@ public class ConstructBinarySearchTreeFromPreorderTraversal {
 
     public static void main(String[] args) {
         // 8,5,10,1,7,null,12
-        TreeNode treeNode = bstFromPreorder(new int[]{8, 5, 1, 7, 10, 12});
+        TreeNode treeNode = new ConstructBinarySearchTreeFromPreorderTraversal()
+                .bstFromPreorder(new int[]{8, 5, 1, 7, 10, 12});
         System.out.println(treeNode.val);
         TreeNode tree2 = bstFromPostorder(new int[]{1,7,5,12,10,8});
         System.out.println(tree2.val);
