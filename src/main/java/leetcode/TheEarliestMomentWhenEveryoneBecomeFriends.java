@@ -1,23 +1,15 @@
 package leetcode;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 /**
- * <a href="https://leetcode.com/problems/the-earliest-moment-when-everyone-become-friends/">...</a>
- *
+ * <a href="https://leetcode.com/problems/the-earliest-moment-when-everyone-become-friends/">1101. The Earliest Moment When Everyone Become Friends</a>
  */
 public class TheEarliestMomentWhenEveryoneBecomeFriends {
 
     public int earliestAcq(int[][] logs, int n) {
         UnionFind unionFind = new UnionFind(n);
-        Arrays.sort(logs, new Comparator<int[]>() {
-            @Override
-            public int compare(int[] o1, int[] o2) {
-                return o1[0] - o2[0];
-            }
-        });
-        System.out.println(Arrays.toString(logs));
+        Arrays.sort(logs, (o1, o2) -> o1[0] - o2[0]);
         for (int i = 0; i < logs.length; i++) {
             int timestamp = logs[i][0];
             int x = logs[i][1];
@@ -28,9 +20,9 @@ public class TheEarliestMomentWhenEveryoneBecomeFriends {
         return -1;
     }
 
-    class UnionFind {
-        private int[] parent;
-        private int[] rank;
+    private static class UnionFind {
+        private final int[] parent;
+        private final int[] rank;
         private int count;
 
         UnionFind(int n) {
@@ -62,18 +54,6 @@ public class TheEarliestMomentWhenEveryoneBecomeFriends {
                 count--;
             }
         }
-    }
-
-    public static void main(String[] args) {
-        int res = new TheEarliestMomentWhenEveryoneBecomeFriends().earliestAcq(
-            new int[][] {
-                {0, 1},
-                {1, 2},
-                {2, 3},
-                {3, 4}
-            },5
-        );
-        System.out.println(res);
     }
 
 }
