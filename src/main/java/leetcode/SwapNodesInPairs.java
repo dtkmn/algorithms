@@ -7,13 +7,6 @@ package leetcode;
  */
 public class SwapNodesInPairs {
 
-    public static class ListNode {
-        int val;
-        ListNode next;
-        ListNode() {}
-        ListNode(int x) { val = x; }
-    }
-
     /**
      * Time Complexity O(N), N is the size of LinkedList
      * Space Complexity O(N) stack space utilized for recursion

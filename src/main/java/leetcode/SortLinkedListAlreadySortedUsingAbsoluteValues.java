@@ -5,13 +5,6 @@ package leetcode;
  */
 public class SortLinkedListAlreadySortedUsingAbsoluteValues {
 
-    public class ListNode {
-        int val;
-        ListNode next;
-        ListNode() {}
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-    }
     public ListNode sortLinkedList(ListNode head) {
         ListNode current = head.next, prev = head;
         while (current != null) {

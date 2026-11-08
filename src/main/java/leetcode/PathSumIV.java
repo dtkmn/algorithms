@@ -1,6 +1,5 @@
 package leetcode;
 
-import leetcode.common.TreeNode;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,6 +8,13 @@ import java.util.Map;
  *  <a href="https://leetcode.com/problems/path-sum-iv/">666. Path Sum IV</a>
  */
 public class PathSumIV {
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode(int x) { val = x; }
+    }
 
     public int pathSum(int[] nums) {
         Map<Integer, TreeNode> nodeMap = new HashMap<>();

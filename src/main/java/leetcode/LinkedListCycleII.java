@@ -7,15 +7,6 @@ package leetcode;
  */
 public class LinkedListCycleII {
 
-    static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-    }
-
     public static ListNode detectCycle(ListNode head) {
 
         if (head == null || head.next == null) return null;

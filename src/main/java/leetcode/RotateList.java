@@ -7,12 +7,6 @@ package leetcode;
  */
 public class RotateList {
 
-    public static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
-
     // 0ms
     public static ListNode rotateRight(ListNode head, int k) {
         if (head == null) return null;
@@ -63,27 +57,6 @@ public class RotateList {
 
     public static void main(String[] args) {
 
-//        ListNode head = new ListNode(1);
-//        head.next = new ListNode(2);
-//        head.next.next = new ListNode(3);
-//        print(reverseList2(head));
-
-//        ListNode head = new ListNode(2);
-//        head.next = new ListNode(4);
-//        head.next.next = new ListNode(6);
-//        head.next.next.next = new ListNode(8);
-//        head.next.next.next.next = new ListNode(10);
-//        print(reverseBetween(head, 2, 4));
-
-//        ListNode head = new ListNode(3);
-//        head.next = new ListNode(5);
-//        head.next.next = new ListNode(6);
-//        head.next.next.next = new ListNode(8);
-//        head.next.next.next.next = new ListNode(10);
-//
-//        print(rotateRight(head, 3));
-
-
         ListNode head = new ListNode(1);
         head.next = new ListNode(2);
         head.next.next = new ListNode(3);
@@ -92,8 +65,6 @@ public class RotateList {
 //        head.next.next.next.next.next = new ListNode(6);
 
         print(rotateRight(head, 8));
-
-
 
     }
 

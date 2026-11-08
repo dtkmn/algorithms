@@ -9,12 +9,6 @@ package leetcode;
  * Output: 5->4->3->2->1->NULL
  */
 public class ReverseLinkedList {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
     // Iteratively
     public static ListNode reverseList(ListNode head) {
         if (head == null) return null;

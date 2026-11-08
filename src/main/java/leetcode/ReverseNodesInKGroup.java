@@ -7,12 +7,6 @@ package leetcode;
  */
 public class ReverseNodesInKGroup {
 
-    public static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
-
     // 0ms
     public static ListNode reverseKGroup(ListNode head, int k) {
         ListNode current = head, tail = null;

@@ -26,13 +26,6 @@ public class AddTwoNumbersII {
 
     }
 
-//    Definition for singly-linked list.
-    public static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
-
     /*
         Input: (7 -> 2 -> 4 -> 3) + (5 -> 6 -> 4)
         Output: 7 -> 8 -> 0 -> 7

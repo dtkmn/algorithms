@@ -7,12 +7,6 @@ package leetcode;
  */
 public class MergeTwoSortedLists {
 
-    public static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
-
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 
         if (l1 == null) return l2;

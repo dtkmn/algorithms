@@ -8,17 +8,6 @@ public class AddTwoNumbers {
 
     public static void main(String[] args) {
 
-//        ListNode i1 = new ListNode(2);
-//        i1.next = new ListNode(4);
-//        i1.next.next = new ListNode(3);
-//        ListNode i2 = new ListNode(5);
-//        i2.next = new ListNode(6);
-//        i2.next.next = new ListNode(4);
-
-//        ListNode i1 = new ListNode(1);
-//        i1.next = new ListNode(8);
-//        ListNode i2 = new ListNode(0);
-
         //        [9]
         //        [1,9,9,9,9,9,9,9,9,9]
         ListNode i1 = new ListNode(9);
@@ -37,13 +26,6 @@ public class AddTwoNumbers {
 
         System.out.println(listNode);
 
-    }
-
-//    Definition for singly-linked list.
-    public static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
     }
 
     // Look more elegant with single while loop
