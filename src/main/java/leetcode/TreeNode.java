@@ -12,8 +12,5 @@ public class TreeNode {
         this.left = left;
         this.right = right;
     }
-    
-    public static void main(String[] args) {
 
-    }
 }
